@@ -1,0 +1,85 @@
+.ticket-confirmation {
+  display: flex;
+  width: 700px;
+  padding: 48px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  border-radius: 24px;
+border: 1px solid #0E464F;
+background: #041E23;
+  }
+h2{
+    color: #FFF;
+  text-align: center;
+  font-family: Alatsi;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  }
+.text{
+  color: var(--color-grey-98, #FAFAFA);
+text-align: center;
+
+/* Text/Regular/Normal */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 24px */
+}
+span{
+  font-weight: 700;
+}
+  .download-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .download-button:hover {
+    background-color: #666;
+  }
+  .ticket-container{
+    display: flex;
+padding: 32px 21px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+align-self: stretch;
+border-radius: 24px;
+  }
+.ticket{
+  width: 300px;
+height: 600px;
+border: 1px solid #24A0B5;
+background: #71A7AF;
+}
+.img-container{
+  height: 30px;
+  justify-content: space-between;
+  align-items: self-end;
+}
+.image{
+  width: 30px;
+  height: 30px;
+  fill: #D9D9D9;
+}
+.container{
+  display: flex;
+width: 260px;
+height: 446px;
+padding: 14px;
+align-items: center;
+flex-shrink: 0;
+border-radius: 16px;
+border: 1px solid #24A0B5;
+background: rgba(3, 30, 33, 0.10);
+backdrop-filter: blur(2px);
+}

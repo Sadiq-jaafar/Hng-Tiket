@@ -1,0 +1,17 @@
+.app-container {
+  background: #02191D;
+  color: white;
+
+  width: 100vw; /* Full screen width */
+  height: 100%; /* Full screen height */
+  display: flex;
+  flex-direction: column; /* Stacks header and content */
+}
+
+
+.content-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  background: #02191D;
+}
