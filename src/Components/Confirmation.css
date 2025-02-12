@@ -20,6 +20,7 @@ h2{
   line-height: normal;
   }
 .text{
+  margin-top: 16;
   color: var(--color-grey-98, #FAFAFA);
 text-align: center;
 
@@ -59,7 +60,7 @@ border-radius: 24px;
   width: 300px;
 height: 600px;
 border: 1px solid #24A0B5;
-background: #71A7AF;
+background: #324c50;
 }
 .img-container{
   height: 30px;
@@ -80,6 +81,214 @@ align-items: center;
 flex-shrink: 0;
 border-radius: 16px;
 border: 1px solid #24A0B5;
-background: rgba(3, 30, 33, 0.10);
+background: #052228;
 backdrop-filter: blur(2px);
+}
+.main1{
+  display: flex;
+width: 232px;
+flex-direction: column;
+align-items: center;
+gap: 20px;
+flex-shrink: 0;
+background: #052228;
+}
+.title1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  margin-top: 5px;
+}
+h1{
+  color: #FFF;
+  text-align: center;
+  font-family: "Road Rage";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 34px */
+}
+
+.detail{
+  display: flex;
+  flex-direction: column;
+align-items:center;
+gap: 16px;
+}
+.address {
+  color: #FFF;
+font-family: Roboto;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 15px */
+}
+.date{
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 15px */
+}
+.user-image{
+  width: 140px;
+height: 140px;
+border-radius: 12px;
+border: 4px solid rgba(36, 160, 181, 0.50);
+background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+}
+.user-details {
+  display: grid;
+  grid-template-columns: repeat(2, 108px); /* Each column is exactly 108px */
+  grid-template-rows: repeat(2, auto); /* 2 rows */
+  gap: 8px; /* Space between grid items */
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #133D44;
+  background: #08343C;
+  width: max-content; /* Ensures the grid only takes the necessary space */
+}
+
+
+.user-image img {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  border: 4px solid rgba(36, 160, 181, 0.5);
+  object-fit: cover;
+  margin: 10px 0;
+}
+
+.user-details { 
+  display: grid;
+  grid-template-columns: repeat(2, 108px); /* Each column is exactly 108px */
+  grid-template-rows: repeat(2, auto); /* 2 rows */
+  gap: 8px; /* Space between grid items */
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #133D44;
+  background: #08343C;
+  width: max-content; /* Ensures the grid only takes the necessary space */
+}
+
+.cell {
+  display: flex;
+  flex-direction: column; /* Ensures p is on top and span is below */
+  justify-content: flex-start; /* Align text to the top */
+  align-items: flex-start;
+  width: 108px; /* Fixed width for each cell */
+  min-height: 50px; /* Ensures proper height */
+  padding: 8px;
+  border-right: 1px solid #12464E;
+  border-bottom: 1px solid #12464E;
+  overflow: hidden; /* Prevents text from overflowing */
+  word-wrap: break-word; /* Ensures long words wrap */
+}
+
+.cell:nth-child(2n) { /* Removes right border from last column */
+  border-right: none;
+}
+
+.cell:nth-child(n+3) { /* Removes bottom border from last row */
+  border-bottom: none;
+}
+
+.cell p {
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 15px */
+  opacity: 0.8; /* Increased opacity for better visibility */
+  margin: 0 0 4px 0; /* Added bottom margin */
+  width: 100%; /* Ensures it takes full cell width */
+  display: block; /* Ensures it displays correctly */
+  text-align: left;
+}
+
+.cell-span {
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 18px */
+  white-space: nowrap; /* Prevents wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Truncates if too long */
+  width: 100%; /* Ensures it takes full cell width */
+  display: block; /* Ensures span is properly displayed */
+}
+.specialcell {
+  display: flex;
+  flex-direction: column; /* Ensures p is on top and span is below */
+  justify-content: flex-start; /* Align text to the top */
+  align-items: flex-start;
+  width: 216px; /* 2x the normal cell width (108px * 2) */
+  min-height: 50px; /* Ensures proper height */
+  padding: 8px;
+  border-right: 1px solid #12464E;
+  border-bottom: 1px solid #12464E;
+  overflow: hidden; /* Prevents text overflow */
+  word-wrap: break-word;
+  grid-column: span 2; /* Makes it take 2 columns */
+}
+
+.specialcell p {
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  opacity: 0.8;
+  margin-bottom: 4px;
+  width: 100%;
+  display: block;
+  text-align: left;
+}
+
+.specialcell .cell-span {
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+}
+.navigation{
+  display: flex;
+  height: 48px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 24px;
+  align-self: stretch;
+}
+.back-button{
+  display: flex;
+padding: var(--Radius-reg-2, 12px) var(--Radius-semi, 24px);
+justify-content: center;
+align-items: center;
+gap: 8px;
+flex: 1 0 0;
+}
+.download-button{
+  display: flex;
+    height: 48px;
+padding: var(--Radius-reg-2, 12px) var(--Radius-semi, 24px);
+justify-content: center;
+align-items: center;
+gap: 8px;
+flex: 1 0 0;
+border-radius: var(--Radius-reg, 8px);
+background:#24A0B5;
 }

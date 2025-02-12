@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TicketData } from "../types";
 import "./TicketSelection.css";
 
@@ -8,21 +8,26 @@ interface Props {
   ticketData: TicketData;
 }
 
-// Fixed typo in component props (Prbuttonops → Props)
 const TicketSelection: React.FC<Props> = ({ setStep, setTicketData, ticketData }) => {
+  const [quantity, setQuantity] = useState(ticketData.quantity);
+
   const selectTicket = (type: string) => {
     setTicketData({ ...ticketData, ticketType: type });
+  };
+
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Math.max(1, Math.min(10, Number(e.target.value)));
+    setQuantity(value);
+    setTicketData({ ...ticketData, quantity: value });
   };
 
   return (
     <div className="form-container">
       <div className="ticket-header">
-        <h2>Ticket Selection</h2> 
+        <h2>Ticket Selection</h2>
         <span>1/3</span>
       </div>
-      <div className="progress-container">
-        <div className="progress"></div>
-      </div>
+      <div className="progress-container"></div>
       
       <div className="cad-container">
         <div className="card-hero">
@@ -57,8 +62,13 @@ const TicketSelection: React.FC<Props> = ({ setStep, setTicketData, ticketData }
         </div>
         <div className="txtt">Number of Tickets</div>
         <div className="input">
-          {/* Changed input type to "number" for better UX */}
-          <input type="number" min="1" max="10" defaultValue="1" />
+          <input
+            type="number"
+            min="1"
+            max="10"
+            value={quantity}
+            onChange={handleQuantityChange}
+          />
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M16.293 8.29309L12 12.5861L7.70697 8.29309L6.29297 9.70709L12 15.4141L17.707 9.70709L16.293 8.29309Z" fill="white"/>
           </svg>
@@ -70,7 +80,7 @@ const TicketSelection: React.FC<Props> = ({ setStep, setTicketData, ticketData }
           <button
             className="next-button"
             onClick={() => setStep(2)}
-            disabled={!ticketData.ticketType}
+            disabled={!ticketData.ticketType || !quantity}
           >
             Next
           </button>

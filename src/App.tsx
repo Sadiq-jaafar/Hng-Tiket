@@ -3,7 +3,7 @@ import Header from "./Components/Header";
 import TicketSelection from "./Components/TicketSelection";
 import AttendeeDetails from "./Components/AttendeeDetails";
 import TicketConfirmation from "./Components/Confirmation";
-import { TicketData } from "./types"; // Import the interface
+import { TicketData } from "./types";
 import "./App.css";
 
 const App: React.FC = () => {
@@ -14,7 +14,7 @@ const App: React.FC = () => {
     ticketType: "",
     quantity: 1,
     specialRequest: "",
-    photo: "",
+    photo: null,
   });
 
   return (
