@@ -72,7 +72,7 @@ const TicketSelection: React.FC<Props> = ({ setStep, setTicketData, ticketData }
       <div className="cad-container">
         <div className="card-hero">
           <div className="main">
-            <h1>Techember Fest ”25</h1>
+            <h1 className="h1">Techember Fest ”25</h1>
             <p>Join us for an unforgettable experience at [Event Name]! Secure your spot now.</p>
           </div>
           <div className="deet">

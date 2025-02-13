@@ -165,7 +165,7 @@ p {
     align-self: stretch;
     border-radius: var(--Radius-reg-2, 12px);
     border: 1px solid #07373F;
-    background-color: #08252B;
+    
 }
 
 textarea {

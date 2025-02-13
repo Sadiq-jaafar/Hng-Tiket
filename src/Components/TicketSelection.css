@@ -108,6 +108,10 @@ h1 {
     font-weight: 400;
     line-height: 100%; /* 62px */
 }
+.h1{
+    font-family: "Road Rage";
+    font-size: 62px;
+}
 
 p {
     max-width: 340px; /* Changed from fixed width to max-width */

@@ -12,37 +12,55 @@ const AttendeeDetails: React.FC<Props> = ({ setStep, setTicketData, ticketData }
   const [name, setName] = useState(ticketData.name);
   const [email, setEmail] = useState(ticketData.email);
   const [file, setFile] = useState<File | null>(null);
-  const [error, setError] = useState<string>("");
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isDragging, setIsDragging] = useState(false);
   const [specialRequest, setSpecialRequest] = useState(ticketData.specialRequest);
 
-  const handleNext = () => {
-    if (!file) {
-      setError('Profile photo is required');
-      return;
+  const validateForm = () => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (!name.trim()) {
+      newErrors.name = "Name is required";
     }
-    
+
+    if (!email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = "Invalid email format";
+    }
+
+    if (!file) {
+      newErrors.file = "Profile photo is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleNext = () => {
+    if (!validateForm()) return;
+
     setTicketData({
       ...ticketData,
       name,
       email,
       photo: file,
-      specialRequest
+      specialRequest,
     });
     setStep(3);
   };
 
   const handleFileChange = (selectedFile: File) => {
-    if (selectedFile.type && !selectedFile.type.startsWith('image/')) {
-      setError('Please upload an image file');
+    if (selectedFile.type && !selectedFile.type.startsWith("image/")) {
+      setErrors({ ...errors, file: "Please upload an image file" });
       return;
     }
     if (selectedFile.size > 5 * 1024 * 1024) {
-      setError('File size should be less than 5MB');
+      setErrors({ ...errors, file: "File size should be less than 5MB" });
       return;
     }
     setFile(selectedFile);
-    setError('');
+    setErrors({ ...errors, file: "" });
   };
 
   const onDrop = useCallback((e: React.DragEvent) => {
@@ -62,6 +80,7 @@ const AttendeeDetails: React.FC<Props> = ({ setStep, setTicketData, ticketData }
     setIsDragging(false);
   }, []);
 
+
   return (
     <div className="attendee-details">
       <div className="title">
@@ -75,7 +94,7 @@ const AttendeeDetails: React.FC<Props> = ({ setStep, setTicketData, ticketData }
         <div className="profile-upload">
           <div className="profile-text">Upload Profile Photo</div>
           <div 
-            className={`drop-zone ${isDragging ? 'dragging' : ''} ${error ? 'error' : ''}`}
+             className={`drop-zone ${isDragging ? "dragging" : ""} ${errors.file ? "error" : ""}`}
             onDrop={onDrop}
             onDragOver={onDragOver}
             onDragLeave={onDragLeave}
@@ -94,17 +113,21 @@ const AttendeeDetails: React.FC<Props> = ({ setStep, setTicketData, ticketData }
               hidden
               accept="image/*"
               onChange={(e) => e.target.files?.[0] && handleFileChange(e.target.files[0])}
+              aria-describedby="file-error"
             />
-            {error && <div className="error-message">{error}</div>}
+            {errors.file && <div id="file-error" className="error-message">{errors.file}</div>}
           </div>
         </div>
         <div className="separator"></div>
         <div className="text-1">Enter your name</div>
         <input
-          className="attendee-input"
+          className={`attendee-input ${errors.name ? "error" : ""}`}
           value={name}
           onChange={(e) => setName(e.target.value)}
+          aria-describedby="name-error"
+          aria-invalid={!!errors.name}
         />
+        {errors.name && <div id="name-error" className="error-message">{errors.name}</div>}
         <div className="text-2">Enter your email *</div>
         <div className="email-input">
           <svg 
@@ -122,8 +145,11 @@ const AttendeeDetails: React.FC<Props> = ({ setStep, setTicketData, ticketData }
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="hello@avioflagos.io"
+            aria-describedby="email-error"
+            aria-invalid={!!errors.email}
           />
         </div>
+        {errors.email && <div id="email-error" className="error-message">{errors.email}</div>}
         <div className="text-3">
           Special request?
         </div>

@@ -15,10 +15,7 @@ const TicketConfirmation: React.FC<{ ticketData: TicketData }> = ({ ticketData }
       </div>
       <div className="ticket-container">
         <div className="ticket">
-          <div className="img-container">
-            <img src="./assets/Ellipse 2.png" alt="decorative" className="image" />
-            <img src="./assets/Ellipse 2.png" alt="decorative" className="image" />
-          </div>
+          
           
           <div className="container">
             <div className="main1">
