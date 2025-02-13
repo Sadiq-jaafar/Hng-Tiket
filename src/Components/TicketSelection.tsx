@@ -66,7 +66,7 @@ const TicketSelection: React.FC<Props> = ({ setStep, setTicketData, ticketData }
       </div>
 
       <div className="progress-container" role="progressbar" aria-valuenow={33} aria-valuemin={0} aria-valuemax={100}>
-        <div className="progress" style={{ width: '33%' }} />
+        <div className="progress" style={{ width: '66.66%' }} />
       </div>
 
       <div className="cad-container">
