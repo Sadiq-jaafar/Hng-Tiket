@@ -292,3 +292,21 @@ flex: 1 0 0;
 border-radius: var(--Radius-reg, 8px);
 background:#24A0B5;
 }
+
+@media (max-width: 600px) {
+  .ticket-confirmation {
+      padding: 24px; 
+  }
+  .navigation {
+      flex-direction: column; 
+      height: auto; 
+      gap: 16px; 
+      margin-top: 20px; 
+  }
+
+  .download-button, .back-button {
+      width: 100%; 
+      height: auto; 
+      padding: 16px; 
+  }
+}

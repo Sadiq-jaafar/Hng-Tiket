@@ -1,7 +1,8 @@
+/* Base styles for header */
 .header-nav {
   display: flex;
-  width: 100%; /* Full width */
-  max-width: 1200px; /* Limits width for larger screens */
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 12px 16px;
   justify-content: space-between;
@@ -10,6 +11,7 @@
   border: 1px solid #197686;
   background: rgba(5, 37, 44, 0.40);
   backdrop-filter: blur(2px);
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 /* Logo */
@@ -34,7 +36,7 @@
   height: 22.624px;
 }
 
-/* Header Links */
+/* Navigation Links */
 .header-links {
   display: flex;
   padding: 10px;
@@ -48,16 +50,7 @@
   text-decoration: none;
   font-family: JejuMyeongjo;
   font-size: 18px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
-}
-
-/* Hide header links on small screens */
-@media (max-width: 768px) {
-  .header-links {
-    display: none;
-  }
 }
 
 /* Header Button */
@@ -73,16 +66,40 @@
   color: #0A0C11;
   font-family: JejuMyeongjo;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 125% */
   text-transform: uppercase;
 }
 
-/* Responsive Header Button for Small Screens */
-@media (max-width: 480px) {
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header-links {
+    display: none; /* Hide links on smaller screens */
+  }
+
+  .menu-btn {
+    display: block; /* Show menu button for mobile */
+  }
+}
+
+@media (max-width: 600px) {
+  .header-nav {
+    width: calc(100% - 32px); /* Adjust width to maintain margins */
+    margin: 10px 16px;
+    border-radius: 16px; /* Adjust for smaller screens */
+  }
+
   .header-btn {
-    font-size: 14px; /* Reduce font size */
+    font-size: 14px;
     padding: 12px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-nav {
+    padding: 8px 12px; /* Reduce padding further */
+  }
+
+  .header-btn {
+    font-size: 12px;
+    padding: 10px 16px;
   }
 }
